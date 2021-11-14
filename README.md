@@ -25,7 +25,7 @@
 * **Subject:** IMAGE PROCESSING AND APPLICATIONS
 * **ID:** CS406
 * **CLASS ID:** CS406.M11
-* **FIRST SEMESTER (2021 - 2022)
+* **YEAR:** 2021 - 2022
 * **LECTURER:** PhD. Dung Mai Tien - *dungmt@uit.edu.vn*
 
 ## CONTRIBUTORS
