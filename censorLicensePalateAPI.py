@@ -7,9 +7,9 @@ class convertImage:
 
   def averageBlur(self, kernelSize):
     for x1, y1, x2, y2 in self.coords:
-      LP = self.image[y1:y2, x1:x2]
-      LP = cv2.blur(LP, (kernelSize, kernelSize))
-      self.image[y1:y2, x1:x2] = LP
+      sub = self.image[y1:y2, x1:x2]
+      sub = cv2.blur(sub, (kernelSize, kernelSize))
+      self.image[y1:y2, x1:x2] = sub
     return self.image
 
   def gaussianBlur(self, kernelSize):
@@ -21,9 +21,9 @@ class convertImage:
 
   def medianBlur(self, kernelSize):
     for x1, y1, x2, y2 in self.coords:
-      subImage = self.image[y1:y2, x1:x2]
-      subImageBlur = cv2.medianBlur(subImage, kernelSize)
-      self.image[y1:y2, x1:x2] = subImageBlur
+      sub = self.image[y1:y2, x1:x2]
+      sub = cv2.medianBlur(sub, kernelSize)
+      self.image[y1:y2, x1:x2] = sub
     return self.image
 
   def eightBitsBlur(self, kernelSize, kernelDepth):
@@ -42,8 +42,8 @@ class convertImage:
     
   def replaceImage(self, image):
     for x1, y1, x2, y2 in self.coords:
-      subImage = self.image[y1:y2, x1:x2]
-      height, width = subImage.shape[:2]
+      sub = self.image[y1:y2, x1:x2]
+      height, width = sub.shape[:2]
       self.image[y1:y2, x1:x2] = cv2.resize(image, (width, height))
     return self.image
 
