@@ -29,11 +29,11 @@
 * **LECTURER:** PhD. Dung Mai Tien - *dungmt@uit.edu.vn*
 
 ## CONTRIBUTORS
-| ID | FULL NAME | ID STUDENT | ROLE | Email | Github | Facebook |
+| No. | FULL NAME | STUDENT ID | ROLE | Email | Github | Facebook |
 | :---: | --- | --- | --- | --- | --- | --- |
-| 1 | Nguyễn Ngọc Lan Phương | 19520227 | Nhóm trưởng | 19520227@gm.uit.edu.vn | [lphuong304](https://github.com/lphuong304) | [phuwowngnef](https://www.facebook.com/phuwowngnef) |
-| 2 | Cao Hưng Phú | 19520214 | Thành viên | 19520214@gm.uit.edu.vn | [caohungphu](https://github.com/caohungphu) | [caohungphuvn](https://www.facebook.com/caohungphuvn) |
-| 3 | Lê Quang Nha | 19520195 | Thành viên | 19520195@gm.uit.edu.vn | [nhalq](https://github.com/nhalq) | [qnhane](https://www.facebook.com/qnhane) |
+| 1 | Nguyễn Ngọc Lan Phương | 19520227 | Leader | 19520227@gm.uit.edu.vn | [lphuong304](https://github.com/lphuong304) | [phuwowngnef](https://www.facebook.com/phuwowngnef) |
+| 2 | Cao Hưng Phú | 19520214 | Member | 19520214@gm.uit.edu.vn | [caohungphu](https://github.com/caohungphu) | [caohungphuvn](https://www.facebook.com/caohungphuvn) |
+| 3 | Lê Quang Nha | 19520195 | Member | 19520195@gm.uit.edu.vn | [nhalq](https://github.com/nhalq) | [qnhane](https://www.facebook.com/qnhane) |
 
 ## FINAL PROJECT
 PROJECT: AUTOMATIC LICENSE PLATE DETECTION AND CENSORING
