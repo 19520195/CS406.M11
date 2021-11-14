@@ -40,7 +40,7 @@
 
 <a name ="giới-thiệu-đề-tài"></a>
 ## FINAL PROJECT
-<h3 align="center">PROJECT: AUTOMATIC LICENSE PLATE DETECTION AND CENSORING<h3>
+<h3 align="center">PROJECT: AUTOMATIC LICENSE PLATE DETECTION AND CENSORING</h3>
 Abstraction: In the current age of the Internet, not only identity cards, human faces,... License plates are also of the type of sensitive personal information that, when leaked on social networks, movies, or videos,... Moreover, being taken advantage of by bad people can lead to unintended consequences like being tracked, releasing individual home addresses without permission, etc. In this final project of image processing and application by using computer vision and deep learning, we provide a system that can automatically detect and censor license palates in an image. Applying in videos is still carried on.
 
 <a name ="cài-đặt"></a>
