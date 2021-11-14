@@ -13,13 +13,13 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/nhalq/CS406.M11?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
 [![Status](https://img.shields.io/badge/language-python-green?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
 
-## BẢNG MỤC LỤC
+## REFERRENCES
 * [Introduction](#giới-thiệu-môn-học)
 * [Contributors](#giới-thiệu-nhóm)
 * [Introduction Project](#giới-thiệu-đề-tài)
 * [Install](#cài-đặt)
 * [Demo](#demo)
-* [References](#tài-liệu-tham-khảo)
+* [Citation](#tài-liệu-tham-khảo)
 
 ## INTRODUCTION
 * **Subject:** IMAGE PROCESSING AND APPLICATIONS
@@ -52,6 +52,7 @@ Abstraction: In the current age of the Internet, not only identity cards, human 
 
 ## DEMO
 
-## REFERENCES
-1. 
+## CITATION
+1. https://github.com/facebookresearch/detectron2
+2. https://github.com/ultralytics/yolov5
 
