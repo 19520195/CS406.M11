@@ -38,6 +38,8 @@
 ## FINAL PROJECT
 PROJECT: AUTOMATIC LICENSE PLATE DETECTION AND CENSORING
 
+Abstraction: In the current age of the Internet, not only identity cards, human faces,... License plates are also of the type of sensitive personal information that, when leaked on social networks, movies, or videos,... Moreover, being taken advantage of by bad people can lead to unintended consequences like being tracked, releasing individual home addresses without permission, etc. In this final project of image processing and application by using computer vision and deep learning, we provide a system that can automatically detect and censor license palates in an image. Applying in videos is still carried on.
+
 ## INSTALL
 
 ## PRETRAINED CHECKPOINT
@@ -45,7 +47,7 @@ PROJECT: AUTOMATIC LICENSE PLATE DETECTION AND CENSORING
 | :--- | --- | --- |  
 | [FASTER RCNN (DATA RAW)](https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing)| 39.5 | 72.3 |  
 | [YOLOV5 (DATA RAW)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing)| 66.8 | 40 | 
-| [FASTER RCNN (DATA AUGMENTATION)](https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing) | 43.4  | 75.5 | 
+| [FASTER RCNN (DATA AUGMENTATION)](https://drive.google.com/file/d/1-Ze4EbZTjZVUWq285EtojjpG0DmBj0t9/view?usp=sharing) | 43.4  | 75.5 | 
 | [YOLOV5 (DATA AUGMENTATION)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing) | LOADING | LOADING |  
 
 ## DEMO
