@@ -11,7 +11,7 @@
 
 [![Status](https://img.shields.io/badge/status-woking-brightgreen?style=flat-square)](https://github.com/nhalq/CS406.M11)
 [![GitHub contributors](https://img.shields.io/github/contributors/nhalq/CS406.M11?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
-[![Status](https://img.shields.io/badge/language-python-green?style=flat-square)
+[![Status](https://img.shields.io/badge/language-python-green?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
 
 ## BẢNG MỤC LỤC
 * [Introduction](#giới-thiệu-môn-học)
@@ -42,12 +42,11 @@ PROJECT: AUTOMATIC LICENSE PLATE DETECTION AND CENSORING
 
 ## PRETRAINED CHECKPOINT
 | MODEL | mAPval | mAPval0.5 | 
-
-| :---: | --- | --- |  
+| :--- | --- | --- |  
 | [FASTER RCNN (DATA RAW)](https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing)| 39.5 | 72.3 |  
-| YOLOV5 (DATA RAW)[https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing] | 43.4 | 75.5 | 
-| FASTER RCNN (DATA AUGMENTATION) | viên | 19520195@gm.uit.edu.vn | 
-| YOLOV5 (DATA AUGMENTATION) | HAHA| DFN|  
+| [YOLOV5 (DATA RAW)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing)| 66.8 | 40 | 
+| [FASTER RCNN (DATA AUGMENTATION)](https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing) | 43.4  | 75.5 | 
+| [YOLOV5 (DATA AUGMENTATION)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing) | LOADING | LOADING |  
 
 ## DEMO
 
