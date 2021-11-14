@@ -8,14 +8,14 @@ class convertImage:
   def averageBlur(self, kernelSize):
     for x1, y1, x2, y2 in self.coords:
       LP = self.image[y1:y2, x1:x2]
-      LP = cv2.blur(LP, kernelSize)
+      LP = cv2.blur(LP, (kernelSize, kernelSize))
       self.image[y1:y2, x1:x2] = LP
     return self.image
 
   def gaussianBlur(self, kernelSize):
     for x1, y1, x2, y2 in self.coords:
       sub = self.image[y1:y2, x1:x2]
-      sub = cv2.GaussianBlur(sub, kernelSize, 0)
+      sub = cv2.GaussianBlur(sub, (kernelSize, kernelSize), 0)
       self.image[y1:y2, x1:x2] = sub
     return self.image
 
