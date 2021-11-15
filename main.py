@@ -52,7 +52,7 @@ def uploadFile(requestFile, pathSave, preFix=""):
 	
 @app.route('/')
 def upload_form():
-    return render_template('ultralytics.html')
+    return render_template('home.html')
 
 @app.route('/', methods=['POST'])
 def upload_image():
@@ -89,7 +89,7 @@ def upload_image():
             imageResult = convertImage(image, listCoors).GaussianBlur(kernelSize)  ### Thay cho nay
     pathImageResult = os.path.join(CFG_PATH_RESULT, fileName)
     cv2.imwrite(pathImageResult, imageResult)
-    return render_template('ultralytics.html', filename=fileName)
+    return render_template('home.html', filename=fileName)
 
 # Rule Show Image Src
 @app.route('/showSrc/<filename>')

@@ -1,0 +1,178 @@
+</html>
+<head>
+	<meta charset="UTF-8">
+	<!-- Header -->
+	<title>CS406.M11 - Nhận diện và làm mờ biển số</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="https://en.uit.edu.vn/sites/vi/files/favicon.ico" type="image/vnd.microsoft.icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!-- Google font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+	<style>
+		body {
+			padding-top: 20px;
+			font-family: 'Merriweather', serif;
+		}
+		
+		.container-fluid{
+			height: 80%;
+			width: 90%;
+		}
+		
+		.col {
+			border: 1px solid black;
+			border-collapse: collapse;
+			border-radius: 15px;
+		}
+		
+		.img_res {
+			max-width: 100%;
+		}
+		
+		form {
+			width: 50%;
+			border: 1px solid black;
+			border-collapse: collapse;
+			border-radius: 15px;
+		}
+		
+		.footer {
+			padding-bottom: 5px;
+			text-align: center;
+			color: #000000;
+			font-weight: bold;
+		}
+	
+	</style>
+</head>
+<body>
+	<h3 style="font-weight: bold; text-align: center;">CS406.M11 - Nhận diện và làm mờ biển số</h3>
+	<div class="container-fluid">
+		<center>
+			<form method="POST" action="/" enctype="multipart/form-data">
+				<div style="font-weight: bold; text-align: center; padding-top: 5px;">CHỌN ẢNH VÀ THÔNG SỐ</div>
+				<br>
+				<div class="custom-file" style="width: 90%">
+					<input type="file" class="custom-file-input" accept="image/*" name="file" id="file" autocomplete="off" required>
+					<label class="custom-file-label" for="file">Chọn ảnh</label>
+				</div>
+				<br><br>
+				<div style="font-weight: bold; text-align: left; padding-left: 20px">Chọn kiểu làm mờ</div>
+				<div style="text-align: center;"> 
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="typeBlur" id="inlineRadio1" value="1" checked>
+						<label class="form-check-label" for="inlineRadio1">Average Blur</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="typeBlur" id="inlineRadio2" value="2">
+						<label class="form-check-label" for="inlineRadio2">Gaussian Blur</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="typeBlur" id="inlineRadio3" value="3">
+						<label class="form-check-label" for="inlineRadio3">Median Blur</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="typeBlur" id="inlineRadio4" value="4">
+						<label class="form-check-label" for="inlineRadio4">8Bits Blur</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="typeBlur" id="inlineRadio5" value="5">
+						<label class="form-check-label" for="inlineRadio5">Bilateral Blur</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="typeBlur" id="inlineRadio6" value="6">
+						<label class="form-check-label" for="inlineRadio6">Replace Image</label>
+					</div>
+				</div>
+				<div style="font-weight: bold; text-align: left; padding-left: 20px">Thông số</div>
+				<div style="text-align: center;"> 
+					<div class="form-group" id="chooseKernelSize">
+						<label for="kernelSize">Kernel size: </label>
+						<input style="width: 70%;" type="range" class="form-range" value="15" min="3" max="101" step="2" id="kernelSize" name="kernelSize" onInput="$('#rangevalSize').html($(this).val())">
+						<span id="rangevalSize">15</span>
+					</div>
+					<div class="form-group" id="chooseKernelDepth" style="display: none;">
+						<label for="kernelDepth">Kernel depth: </label>
+						<input style="width: 68%;" type="range" class="form-range" value="10" min="1" max="64" step="1" id="kernelDepth" name="kernelDepth" onInput="$('#rangevalDepth').html($(this).val())">
+						<span id="rangevalDepth">10</span>
+					</div>
+					<div class="custom-file" style="width: 90%; display: none;" id="chooseImageReplace">
+						<input type="file" class="custom-file-input" accept="image/*" name="fileReplace" id="fileReplace" autocomplete="off">
+						<label class="custom-file-label" for="file">Chọn ảnh thay thế</label>
+					</div>
+					
+					
+				</div>
+				<hr>
+				<center>
+					<button type="submit" class="btn btn-success">SUBMIT</button>
+				</center>
+				<br>
+			</form>
+		</center>
+		{% if filename %}
+		<div class="row">
+			<div class="col">
+				<div style="font-weight: bold; text-align: center; padding-top: 5px;">ẢNH GỐC</div>
+				<br>
+				<img style="max-width: 100%" src="{{ url_for('display_image', filename=filename) }}">
+				<br><br>
+			</div>
+			&nbsp;
+			<div class="col">
+				<div style="font-weight: bold; text-align: center; padding-top: 5px;">KẾT QUẢ</div>
+				<br>
+				<img style="max-width: 100%" src="{{ url_for('display_image', filename='res_' + filename) }}">
+				<br><br>
+				<center>
+					<a type="submit" href="{{ url_for('downloadFile', filename='res_' + filename) }}" target="_blank" class="btn btn-success">DOWNLOAD</a>
+				</center>
+				<br>
+			</div>
+		</div>
+		<br><br>
+		{% endif %}
+		<div class="footer">
+			CS406.M11 - Nhận diện và làm mờ biển số - Team: 
+			<a href="https://github.com/lphuong304">19520227</a> -
+			<a href="https://github.com/nhalq">19520195</a> -
+			<a href="https://github.com/caohungphu">19520214</a>
+		</div>
+	</div>
+	<script>
+		$(".custom-file-input").on("change", function() {
+		  var fileName = $(this).val().split("\\").pop();
+		  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+		});
+		
+		$('input[type=radio][name=typeBlur]').change(function() {
+			let valueType = parseInt($("input[name='typeBlur']:checked").val());
+			if (valueType == 6) {
+				$('#chooseKernelSize').hide();
+				$('#chooseKernelDepth').hide();
+				$('#chooseImageReplace').show();
+			} else if (valueType == 4) {
+				$('#chooseKernelSize').show();
+				$('#chooseKernelDepth').show();
+				$('#chooseImageReplace').hide();
+			} else {
+				$('#chooseKernelSize').show();
+				$('#chooseKernelDepth').hide();
+				$('#chooseImageReplace').hide();
+			}
+		});
+		
+		<!-- $('img.autoFix').error(function(){ -->
+			<!-- var src = this.src; -->
+			<!-- this.src = src; -->
+		<!-- }); -->
+	</script>
+</body>
+</html>
