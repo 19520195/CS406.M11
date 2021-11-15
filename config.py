@@ -15,7 +15,7 @@ CFG_DEVICE = 'cpu' # ['cpu' , 'gpu']
 CFG_MODEL = 'yolo' # ['yolo' , 'fasterrcnn']
 
 # HTTP SERVER
-CFG_HTTP_TYPE = 'local' # ['local' , 'ngrok']
+CFG_HTTP_TYPE = 'ngrok' # ['local' , 'ngrok']
 
 # CUSTOM
 CFG_ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
