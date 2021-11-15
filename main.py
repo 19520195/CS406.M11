@@ -42,12 +42,13 @@ def allowedFile(filename):
 # Upload file
 def uploadFile(requestFile, pathSave, preFix=""):
     if requestFile.filename == '':
-        return None
+        return None, None
     if requestFile and allowedFile(requestFile.filename):
         fileName = preFix + convertFileName(secure_filename(requestFile.filename))
         pathSaveFile = os.path.join(pathSave, fileName)
-        return pathSaveFile
-    return None
+        requestFile.save(pathSaveFile)
+        return fileName, pathSaveFile
+    return None, None
 	
 @app.route('/')
 def upload_form():
@@ -57,64 +58,53 @@ def upload_form():
 def upload_image():
     if 'image' not in request.files:
         return redirect(request.url)
-    pathImage = uploadFile(request.files['image'], CFG_PATH_UPLOAD)
+    fileName, pathImage = uploadFile(request.files['image'], CFG_PATH_UPLOAD)
     if pathImage is None:
         return redirect(request.url)
+    image = cv2.imread(pathImage)
+    listCoors = model.predict(image)
     
-    
-    
-    
-    file = request.files['image']
-    if file.filename == '':
-        return redirect(request.url)
-    if file and allowedFile(file.filename):
-        filename = convertFileName(secure_filename(file.filename))
-        path_save = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(path_save)
-        
-       
-        image_res = None
-        image = cv2.imread(path_save)
-        list_coors = model.predict(image)
-        typeBlur = int(request.form['typeBlur'])
-        
-        if typeBlur == 6: # Replace Image
-            file_replace = request.files['imageReplace']
-            filename_replace = convertFileName(secure_filename(file_replace.filename))
-            path_save_replace = os.path.join(app.config['UPLOAD_FOLDER'], filename_replace)
-            file_replace.save(path_save_replace)
-            image_replace = cv2.imread(path_save_replace)
-            imageResult = convertImage(image, list_coors).replaceImage(image_replace)
-        else:
-            kernelSize = int(request.form['kernelSize'])
-            if typeBlur == 1: # averageBlur
-                imageResult = convertImage(image, list_coors).averageBlur(kernelSize)
-            elif typeBlur == 2: # gaussianBlur
-                imageResult = convertImage(image, list_coors).gaussianBlur(kernelSize)
-            elif typeBlur == 3: # medianBlur
-                imageResult = convertImage(image, list_coors).medianBlur(kernelSize)            
-            elif typeBlur == 4: # eightBitsBlur
-                kernelDepth = int(request.form['kernelDepth'])
-                imageResult = convertImage(image, list_coors).eightBitsBlur(kernelSize, kernelDepth)
-            elif typeBlur == 5: # bilateralBlur
-                imageResult = convertImage(image, list_coors).GaussianBlur(kernelSize)  ### Thay cho nay
-                
-        path_save_res = os.path.join(app.config['UPLOAD_FOLDER'], "res_" + filename)
-        
-        cv2.imwrite(path_save_res, imageResult)
-        return render_template('ultralytics.html', filename=filename)
+    imageResult = None
+    typeBlur = int(request.form['typeBlur'])
+    if typeBlur == 6: # Replace Image
+        if 'imageReplace' not in request.files:
+            return redirect(request.url)
+        pathImageReplace = uploadFile(request.files['imageReplace'], CFG_PATH_UPLOAD)
+        if pathImageReplace is None:
+            return redirect(request.url)
+        imageReplace = cv2.imread(pathImageReplace)
+        imageResult = convertImage(image, listCoors).replaceImage(imageReplace)
     else:
-        return redirect(request.url)
+        kernelSize = int(request.form['kernelSize'])
+        if typeBlur == 1: # averageBlur
+            imageResult = convertImage(image, listCoors).averageBlur(kernelSize)
+        elif typeBlur == 2: # gaussianBlur
+            imageResult = convertImage(image, listCoors).gaussianBlur(kernelSize)
+        elif typeBlur == 3: # medianBlur
+            imageResult = convertImage(image, listCoors).medianBlur(kernelSize)            
+        elif typeBlur == 4: # eightBitsBlur
+            kernelDepth = int(request.form['kernelDepth'])
+            imageResult = convertImage(image, listCoors).eightBitsBlur(kernelSize, kernelDepth)
+        elif typeBlur == 5: # bilateralBlur
+            imageResult = convertImage(image, listCoors).GaussianBlur(kernelSize)  ### Thay cho nay
+    pathImageResult = os.path.join(CFG_PATH_RESULT, fileName)
+    cv2.imwrite(pathImageResult, imageResult)
+    return render_template('ultralytics.html', filename=fileName)
 
-# Rule Show Image
-@app.route('/display/<filename>')
-def display_image(filename):
+# Rule Show Image Src
+@app.route('/showSrc/<filename>')
+def displayImageSrc(filename):
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
+ 
+# Rule Show Image Des 
+@app.route('/showDes/<filename>')
+def displayImageDes(filename):
+	return redirect(url_for('static', filename='results/' + filename), code=301)
 
 # Rule Download Image
 @app.route('/download/<filename>')
 def downloadFile(filename):
-    return send_file(os.path.join(app.config['UPLOAD_FOLDER'], filename), as_attachment=True)
+    return send_file(os.path.join(CFG_PATH_RESULT, filename), as_attachment=True)
 
 # Main
 if __name__ == "__main__":

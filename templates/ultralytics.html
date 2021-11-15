@@ -134,20 +134,20 @@
       <div class="col">
         <div class="dashed-border w-100" style="height: 640px; display: flex; align-content: space-around; justify-content: center; flex-wrap: wrap;">
           <div class="text-center">
-			<img style="max-height: 100%; max-width: 100%;" src="{{ url_for('display_image', filename='res_' + filename) }}">
+			<img style="max-height: 100%; max-width: 100%;" src="{{ url_for('displayImageDes', filename=filename) }}">
           </div>
         </div>
       </div>
     </div>
     <div class="row mt-3 mb-3">
       <div class="col text-center">
-        <a type="submit" href="{{ url_for('downloadFile', filename='res_' + filename) }}" target="_blank" class="btn btn-success">Download</a>
+        <a type="submit" href="{{ url_for('downloadFile', filename=filename) }}" target="_blank" class="btn btn-success">Download</a>
       </div>
     </div>
   </div>
   <script>
     $("#cat").hide();
-	document.getElementById("image").src = "{{ url_for('display_image', filename=filename) }}";
+	document.getElementById("image").src = "{{ url_for('displayImageSrc', filename=filename) }}";
     $("#image").show();
   </script>
 {% endif %}

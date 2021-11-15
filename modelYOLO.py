@@ -13,5 +13,5 @@ class modelYOLO:
             
     def predict(self, image):
         list_coors = [[int(box['xmin']), int(box['ymin']), int(box['xmax']), int(box['ymax'])] \
-                    for _, box in (self.model(image).pandas().xyxy.pop()).iterrows()]
+                for _, box in (self.model(image).pandas().xyxy.pop()).iterrows()]
         return list_coors
