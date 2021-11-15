@@ -17,9 +17,11 @@ else:
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
-if CFG_API_DEVICE == 'ngrok':
-    from flask_ngrok import run_with_ngrok
-    run_with_ngrok(app)
+from flask_ngrok import run_with_ngrok
+run_with_ngrok(app)
+# if CFG_API_DEVICE == 'ngrok':
+    # from flask_ngrok import run_with_ngrok
+    # run_with_ngrok(app)
     
 app.secret_key = 'CS406.M11'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -33,7 +35,7 @@ def allowed_file(filename):
 	
 @app.route('/')
 def upload_form():
-    response = make_response(render_template('home.html'))
+    response = make_response(render_template('ultralytics.html'))
     response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "0"
@@ -41,10 +43,10 @@ def upload_form():
 
 @app.route('/', methods=['POST'])
 def upload_image():
-    if 'file' not in request.files:
+    if 'image' not in request.files:
         flash('No file part')
         return redirect(request.url)
-    file = request.files['file']
+    file = request.files['image']
     if file.filename == '':
         flash('No image selected for uploading')
         return redirect(request.url)
@@ -64,7 +66,7 @@ def upload_image():
         
         
         if typeBlur == 6: # Replace Image
-            file_replace = request.files['fileReplace']
+            file_replace = request.files['imageReplace']
             filename_replace = convertFileName(secure_filename(file_replace.filename))
             path_save_replace = os.path.join(app.config['UPLOAD_FOLDER'], filename_replace)
             file_replace.save(path_save_replace)
@@ -86,7 +88,7 @@ def upload_image():
                 
         path_save_res = os.path.join(app.config['UPLOAD_FOLDER'], "res_" + filename)
         cv2.imwrite(path_save_res, imageResult)
-        return render_template('home.html', filename=filename)
+        return render_template('ultralytics.html', filename=filename)
     else:
         flash('Allowed image types are -> png, jpg, jpeg, gif')
         return redirect(request.url)
