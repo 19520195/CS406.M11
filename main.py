@@ -51,11 +51,11 @@ def uploadFile(requestFile, pathSave, preFix=""):
     return None, None
 	
 @app.route('/')
-def upload_form():
+def default():
     return render_template('home.html')
 
 @app.route('/', methods=['POST'])
-def upload_image():
+def home():
     if 'image' not in request.files:
         return redirect(request.url)
     fileName, pathImage = uploadFile(request.files['image'], CFG_PATH_UPLOAD)
@@ -69,7 +69,7 @@ def upload_image():
     if typeBlur == 6: # Replace Image
         if 'imageReplace' not in request.files:
             return redirect(request.url)
-        pathImageReplace = uploadFile(request.files['imageReplace'], CFG_PATH_UPLOAD)
+        fileNameReplace, pathImageReplace = uploadFile(request.files['imageReplace'], CFG_PATH_UPLOAD)
         if pathImageReplace is None:
             return redirect(request.url)
         imageReplace = cv2.imread(pathImageReplace)

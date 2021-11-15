@@ -1,20 +1,22 @@
-from config import *
-from modelYOLO import *
-from modelFasterRCNN import *
 import cv2
-import json
 import numpy as np
 from flask import Flask, request
 
-detector = None
-if CFG_API_TYPE == 'fasterrcnn':
-    detector = modelFasterRCNN()
+from config import *
+
+# Load model
+model = None
+if CFG_MODEL == 'yolo':
+    from modelYOLO import *
+    model = modelYOLO()
 else:
-    detector = modelYOLO()
+    from modelFasterRCNN import *
+    model = modelFasterRCNN()
     
 app = Flask(__name__)
 
-if CFG_API_DEVICE == 'colab':
+# Check type HTTP
+if CFG_HTTP_TYPE == 'ngrok':
     from flask_ngrok import run_with_ngrok
     run_with_ngrok(app)
 
@@ -24,17 +26,14 @@ if CFG_API_DEVICE == 'colab':
 def home(path):
     if request.method == 'GET':
         return '{"messages": "error", "data": []}'
-        
-    image_byte = request.files['image'].read()
-    if image_byte is None:
+    imageByte = request.files['image'].read()
+    if imageByte is None:
         return '{"messages": "error", "data": []}'
-        
-    image_arr = np.frombuffer(image_byte, dtype=np.uint8)
-    image = cv2.imdecode(image_arr, flags=1)
-    
+    imageArr = np.frombuffer(imageByte, dtype=np.uint8)
+    image = cv2.imdecode(imageArr, flags=1)
     result = {
         "messages": "success",
-        "data": detector.predict(image)
+        "data": model.predict(image)
     }
     return str(result).replace("'", '"')
 
