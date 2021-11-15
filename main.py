@@ -6,7 +6,7 @@ from werkzeug.utils import secure_filename
 from flask import Flask, request, redirect, send_file, url_for, render_template
 
 from config import *
-from censorLicensePalateAPI import *
+from censorLicensePalate import *
 
 # Load model
 model = None
