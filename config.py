@@ -16,3 +16,8 @@ CFG_MODEL = 'yolo' # ['yolo' , 'fasterrcnn']
 
 # HTTP SERVER
 CFG_HTTP_TYPE = 'local' # ['local' , 'ngrok']
+
+# CUSTOM
+CFG_ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+CFG_PATH_UPLOAD = './static/uploads'
+CFG_MAX_CONTENT_LENGTH = 5 * 1024 * 1024 # 5MB
