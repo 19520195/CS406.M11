@@ -38,6 +38,16 @@ def convertFileName(fileName):
 # Check allow file upload
 def allowedFile(filename):
 	return '.' in filename and filename.rsplit('.', 1)[1].lower() in CFG_ALLOWED_EXTENSIONS
+    
+# Upload file
+def uploadFile(requestFile, pathSave, preFix=""):
+    if requestFile.filename == '':
+        return None
+    if requestFile and allowedFile(requestFile.filename):
+        fileName = preFix + convertFileName(secure_filename(requestFile.filename))
+        pathSaveFile = os.path.join(pathSave, fileName)
+        return pathSaveFile
+    return None
 	
 @app.route('/')
 def upload_form():
@@ -47,6 +57,13 @@ def upload_form():
 def upload_image():
     if 'image' not in request.files:
         return redirect(request.url)
+    pathImage = uploadFile(request.files['image'], CFG_PATH_UPLOAD)
+    if pathImage is None:
+        return redirect(request.url)
+    
+    
+    
+    
     file = request.files['image']
     if file.filename == '':
         return redirect(request.url)
