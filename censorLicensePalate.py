@@ -26,12 +26,13 @@ class convertImage:
       self.image[y1:y2, x1:x2] = sub
     return self.image
 
-  def eightBitsBlur(self, kernelSize, kernelDepth):
+  def eightBitsBlur(self, kernelSize, kernelDepth=10):
     dst = self.image.copy()
     for x1, y1, x2, y2 in self.coords:
       sub = dst[y1:y2, x1:x2]
       height, width = sub.shape[:2]
-      newHeight, newWidth = height // kernelSize, width // kernelSize
+      k = min([kernelSize, height, width])
+      newHeight, newWidth = height // k, width // k
 
       blured = cv2.resize(sub, (newWidth, newHeight))
       blured = cv2.resize(blured, (width, height), interpolation=cv2.INTER_AREA)
