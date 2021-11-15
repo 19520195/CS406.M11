@@ -3,7 +3,7 @@ import cv2
 import hashlib
 from datetime import datetime
 from werkzeug.utils import secure_filename
-from flask import Flask, request, redirect, send_file, url_for, render_template, make_response
+from flask import Flask, request, redirect, send_file, url_for, render_template
 
 from config import *
 from censorLicensePalateAPI import *
@@ -41,11 +41,7 @@ def allowedFile(filename):
 	
 @app.route('/')
 def upload_form():
-    response = make_response(render_template('ultralytics.html'))
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "0"
-    return response
+    return render_template('ultralytics.html')
 
 @app.route('/', methods=['POST'])
 def upload_image():
