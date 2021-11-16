@@ -54,7 +54,7 @@ def home():
         
     imageArr = np.frombuffer(imageByte, dtype=np.uint8)
     image = cv2.imdecode(imageArr, flags=1)
-    cv2.imwrite(os.path.join(CFG_PATH_UPLOAD, fileName), image)
+    # cv2.imwrite(os.path.join(CFG_PATH_UPLOAD, fileName), image)
     listCoors = model.predict(image)
     imageResult = None
    
@@ -77,11 +77,11 @@ def home():
     elif typeBlur == 5: # bilateralBlur
         imageResult = convertImage(image, listCoors).bilateralBlur(kernelSize)
     
-    cv2.imwrite(os.path.join(CFG_PATH_RESULT, fileName), imageResult)
+    # cv2.imwrite(os.path.join(CFG_PATH_RESULT, fileName), imageResult)
 
-    #return '{"messages": "success", "imageSrc": "' + convertImageToBase64(image) + '", "imageDes": "' + convertImageToBase64(imageResult) + '"}'
+    return '{"messages": "success", "imageSrc": "' + convertImageToBase64(image) + '", "imageDes": "' + convertImageToBase64(imageResult) + '"}'
     
-    return '{"messages": "success", "imageSrc": "' + request.url[:-1] + url_for('displayImageSrc', filename=fileName) + '", "imageDes": "' + request.url[:-1] + url_for('displayImageDes', filename=fileName) + '"}'
+    # return '{"messages": "success", "imageSrc": "' + request.url[:-1] + url_for('displayImageSrc', filename=fileName) + '", "imageDes": "' + request.url[:-1] + url_for('displayImageDes', filename=fileName) + '"}'
 
 
 # Rule Show Image Src

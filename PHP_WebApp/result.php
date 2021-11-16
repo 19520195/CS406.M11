@@ -1,5 +1,5 @@
 <?php
-	$server = "http://127.0.0.1:5000";
+	$server = "http://0628-34-77-129-66.ngrok.io";
 	$uploadDir = 'uploads/';
 	
 	function convertFileName($fileName){
@@ -116,8 +116,8 @@
     </div>
     <div class="row mt-3 mb-3">
       <div class="col text-center">
-        <a type="submit" href="./index.php" class="btn btn-success">Go home</a>
-        <a type="submit" href="<?php echo "./download.php?url=".$result->{'imageDes'}; ?>" target="_blank" class="btn btn-success">Download</a>
+        <a href="./index.php" class="btn btn-success">Go home</a>
+        <a download="cs406_result.jpg" href="<?php echo $result->{'imageDes'}; ?>" target="_blank" class="btn btn-success">Download</a>
       </div>
     </div>
   </div>
