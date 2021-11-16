@@ -40,7 +40,14 @@ class convertImage:
 
       dst[y1:y2, x1:x2] = blured
     return dst
-    
+  
+  def bilateralBlur(self, kernelSize):
+    for x1, y1, x2, y2 in self.coords:
+      sub = self.image[y1:y2, x1:x2]
+      sub = cv2.bilateralFilter(sub, kernelSize, 75, 75)
+      self.image[y1:y2, x1:x2] = sub
+    return self.image
+
   def replaceImage(self, image):
     for x1, y1, x2, y2 in self.coords:
       sub = self.image[y1:y2, x1:x2]
@@ -59,6 +66,4 @@ class convertImage:
         return self.eightBitsBlur(kerneSize, kernelDepth)
     elif typeBlur == 5:
         return self.gaussianBlur(kerneSize)
-    return self.replaceImage(imageReplace)         
-            
-
+    return self.replaceImage(imageReplace)
