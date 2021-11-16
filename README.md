@@ -9,9 +9,9 @@
 <h1 align="center"><b>CS406.M11 - XỬ LÝ ẢNH VÀ ỨNG DỤNG</b></h1>
 <h1 align="center"><b>IMAGE PROCESSING AND APPLICATIONS</b></h1>
 
-[![Status](https://img.shields.io/badge/status-woking-brightgreen?style=flat-square)](https://github.com/nhalq/CS406.M11)
-[![GitHub contributors](https://img.shields.io/github/contributors/nhalq/CS406.M11?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
-[![Status](https://img.shields.io/badge/language-python-green?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
+[![Status](https://img.shields.io/badge/status-woking-brightgreen?style=flat-square)](https://github.com/19520195/CS406.M11)
+[![GitHub contributors](https://img.shields.io/github/contributors/19520195/CS406.M11?style=flat-square)](https://github.com/nhalq/CS406.M11/graphs/contributors)
+[![Status](https://img.shields.io/badge/language-python-green?style=flat-square)](https://github.com/19520195/CS406.M11/graphs/contributors)
 
 ## REFERRENCES
 * [Introduction](#giới-thiệu-môn-học)
