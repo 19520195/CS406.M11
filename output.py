@@ -83,7 +83,7 @@ if __name__ == '__main__':
         print('Frame per second: {}'.format(frPS))
 
         # Write output
-        imWriter = cv2.VideoWriter(omFilename, cv2.VideoWriter_fourcc(*'XVID'), frPS, (frWidth, frHeight))
+        imWriter = cv2.VideoWriter(outputFile, cv2.VideoWriter_fourcc(*'XVID'), frPS, (frWidth, frHeight))
         for frIndex in tqdm(range(frNumber)):
             _, image = imReader.read()
             if not _: raise 'Oops! What a lovely bug: Fail to capture image'
