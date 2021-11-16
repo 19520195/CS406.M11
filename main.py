@@ -86,7 +86,7 @@ def home():
             kernelDepth = int(request.form['kernelDepth'])
             imageResult = convertImage(image, listCoors).eightBitsBlur(kernelSize, kernelDepth)
         elif typeBlur == 5: # bilateralBlur
-            imageResult = convertImage(image, listCoors).GaussianBlur(kernelSize)  ### Thay cho nay
+            imageResult = convertImage(image, listCoors).bilateralBlur(kernelSize)
     pathImageResult = os.path.join(CFG_PATH_RESULT, fileName)
     cv2.imwrite(pathImageResult, imageResult)
     return render_template('home.html', filename=fileName)
