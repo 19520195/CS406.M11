@@ -1,6 +1,8 @@
 # output.py
-# Usage 1: python output.py --type image --input Testcases/image_1.jpg --output Results/image_1.jpg
-# Usage 2: python output.py --type video --input Testcases/video_1.mp4 --output Results/video_1.avi
+# Usage 1: python output.py --typeinput image --input testcases/input/image_1.jpg --output testcases/output/image_1.jpg \
+#                [--typeblur 6 --kernesize 15 --kerneldepth 10 --imagereplace static/images/_.jpg]
+# Usage 2: python output.py --typeinput video --input testcases/input/video_1.mp4 --output testcases/output/video_1.avi \
+#                [--typeblur 6 --kernesize 15 --kerneldepth 10 --imagereplace static/images/_.jpg]
 # Authors: Nguyen Ngoc Lan Phuong <19520227@gm.uit.edu.vn>
 #          Cao Hung Phu           <19520214@gm.uit.edu.vn>
 #          Le Quang Nha           <19520195@gm.uit.edu.vn>
