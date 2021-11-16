@@ -75,7 +75,7 @@ def home():
         kernelDepth = int(request.form['kernelDepth'])
         imageResult = convertImage(image, listCoors).eightBitsBlur(kernelSize, kernelDepth)
     elif typeBlur == 5: # bilateralBlur
-        imageResult = convertImage(image, listCoors).GaussianBlur(kernelSize)  ### Thay cho nay
+        imageResult = convertImage(image, listCoors).bilateralBlur(kernelSize)
     
     cv2.imwrite(os.path.join(CFG_PATH_RESULT, fileName), imageResult)
 

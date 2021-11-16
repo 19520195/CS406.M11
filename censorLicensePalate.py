@@ -65,5 +65,5 @@ class convertImage:
     elif typeBlur == 4:
         return self.eightBitsBlur(kerneSize, kernelDepth)
     elif typeBlur == 5:
-        return self.gaussianBlur(kerneSize)
+        return self.bilateralBlur(kerneSize)
     return self.replaceImage(imageReplace)
