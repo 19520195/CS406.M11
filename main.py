@@ -66,7 +66,7 @@ def home():
     
     imageResult = None
     typeBlur = int(request.form['typeBlur'])
-    if typeBlur == 6: # Replace Image
+    if typeBlur == 5: # Replace Image
         if 'imageReplace' not in request.files:
             return redirect(request.url)
         fileNameReplace, pathImageReplace = uploadFile(request.files['imageReplace'], CFG_PATH_UPLOAD)
@@ -85,8 +85,6 @@ def home():
         elif typeBlur == 4: # eightBitsBlur
             kernelDepth = int(request.form['kernelDepth'])
             imageResult = convertImage(image, listCoors).eightBitsBlur(kernelSize, kernelDepth)
-        elif typeBlur == 5: # bilateralBlur
-            imageResult = convertImage(image, listCoors).bilateralBlur(kernelSize)
     pathImageResult = os.path.join(CFG_PATH_RESULT, fileName)
     cv2.imwrite(pathImageResult, imageResult)
     return render_template('home.html', filename=fileName)

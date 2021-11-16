@@ -59,7 +59,7 @@ def home():
     imageResult = None
    
     
-    if typeBlur == 6: # Replace image
+    if typeBlur == 5: # Replace image
         if imageReplaceByte is None:
             return '{"messages": "error"}'
         imageReplaceArr = np.frombuffer(imageReplaceByte, dtype=np.uint8)
@@ -74,8 +74,6 @@ def home():
     elif typeBlur == 4: # eightBitsBlur
         kernelDepth = int(request.form['kernelDepth'])
         imageResult = convertImage(image, listCoors).eightBitsBlur(kernelSize, kernelDepth)
-    elif typeBlur == 5: # bilateralBlur
-        imageResult = convertImage(image, listCoors).bilateralBlur(kernelSize)
     
     # cv2.imwrite(os.path.join(CFG_PATH_RESULT, fileName), imageResult)
 

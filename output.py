@@ -22,7 +22,7 @@ if __name__ == '__main__':
     parser.add_argument('--typeinput', type=str, default='image')
     parser.add_argument('--input', type=str, default='testcases/input/image_1.jpg')
     parser.add_argument('--output', type=str, default='testcases/output/image_1.jpg')
-    parser.add_argument('--typeblur', type=int, default='6')
+    parser.add_argument('--typeblur', type=int, default='5')
     parser.add_argument('--kernesize', type=int, default='15')
     parser.add_argument('--kerneldepth', type=int, default='10')
     parser.add_argument('--imagereplace', type=str, default='static/images/_.jpg')
@@ -43,9 +43,9 @@ if __name__ == '__main__':
         print("Error type!!!")
         print("Type: image, video")
         print("Example 1: python output.py --typeinput image --input testcases/input/image_1.jpg --output testcases/output/image_1.jpg \
-                [--typeblur 6 --kernesize 15 --kerneldepth 10 --imagereplace static/images/_.jpg]")
+                [--typeblur 5 --kernesize 15 --kerneldepth 10 --imagereplace static/images/_.jpg]")
         print("Example 2: python output.py --typeinput video --input testcases/input/video_1.mp4 --output testcases/output/video_1.avi \
-                [--typeblur 6 --kernesize 15 --kerneldepth 10 --imagereplace static/images/_.jpg]")
+                [--typeblur 5 --kernesize 15 --kerneldepth 10 --imagereplace static/images/_.jpg]")
         exit()
         
     if not os.path.exists(inputFile):
