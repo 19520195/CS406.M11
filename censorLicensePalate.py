@@ -48,13 +48,13 @@ class convertImage:
       self.image[y1:y2, x1:x2] = cv2.resize(image, (width, height))
     return self.image
 
-  def getResult(self, typeBlur, kerneSize, kernelDepth, imageReplace):
+  def getResult(self, typeBlur, kernelSize, kernelDepth, imageReplace):
     if typeBlur == 1:
-        return self.averageBlur(kerneSize)
+        return self.averageBlur(kernelSize)
     elif typeBlur == 2:
-        return self.gaussianBlur(kerneSize)
+        return self.gaussianBlur(kernelSize)
     elif typeBlur == 3:
-        return self.medianBlur(kerneSize)
+        return self.medianBlur(kernelSize)
     elif typeBlur == 4:
-        return self.eightBitsBlur(kerneSize, kernelDepth)
+        return self.eightBitsBlur(kernelSize, kernelDepth)
     return self.replaceImage(imageReplace)
