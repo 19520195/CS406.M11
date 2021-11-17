@@ -2,4 +2,3 @@ __pycache__
 static/uploads
 static/results
 model
-config.py
