@@ -15,7 +15,7 @@ class convertImage:
   def gaussianBlur(self, kernelSize):
     for x1, y1, x2, y2 in self.coords:
       sub = self.image[y1:y2, x1:x2]
-      sub = cv2.GaussianBlur(sub, (kernelSize, kernelSize), 1)
+      sub = cv2.GaussianBlur(sub, (kernelSize, kernelSize), 0)
       self.image[y1:y2, x1:x2] = sub
     return self.image
 
