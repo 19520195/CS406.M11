@@ -2,11 +2,11 @@
 CFG_THRESHOLD = 0.6
 
 # YOLO
-CFG_PATH_YOLO_MODEL = './model/YOLOV5.pt'
+CFG_PATH_YOLO_MODEL = './model/YOLOv5.pt'
 
 # FASTER RCNN
 CFG_PATH_FASTERRCNN_CONFIG = './model/config_FasterRCNN.txt'
-CFG_PATH_FASTERRCNN_MODEL = './model/faster-rcnn-data-raw.pth'
+CFG_PATH_FASTERRCNN_MODEL = './model/FasterRCNN.pth'
 
 # DEVICE
 CFG_DEVICE = 'cpu' # ['cpu' , 'gpu'] # FASTER RCNN
