@@ -20,5 +20,5 @@ class modelFasterRCNN:
         print("Loaded: FASTER RCNN")
         
     def predict(self, image):
-        list_coors = [[int(_) for _ in x] for x in self.predictor(image)["instances"].pred_boxes.tensor.numpy().tolist()] 
+        list_coors = [[int(_) for _ in x] for x in self.predictor(image)["instances"].pred_boxes.cpu().tensor.numpy().tolist()] 
         return list_coors
