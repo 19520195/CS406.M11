@@ -48,12 +48,12 @@ Abstraction: In the current age of the Internet, not only identity cards, human 
 
 <a name ="checkpoints"></a>
 ## PRETRAINED CHECKPOINT
-| MODEL | mAPval | mAPval0.5 | 
+| MODEL | mAPval(%) | mAPval0.5(%) | 
 | :--- | --- | --- |  
-| [FASTER RCNN (DATA RAW)](https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing)| 39.5 | 72.3 |  
-| [YOLOV5 (DATA RAW)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing)| 66.8 | 40 | 
-| [FASTER RCNN (DATA AUGMENTATION)](https://drive.google.com/file/d/1-Ze4EbZTjZVUWq285EtojjpG0DmBj0t9/view?usp=sharing) | 43.4  | 75.5 | 
-| [YOLOV5 (DATA AUGMENTATION)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing) | LOADING | LOADING |  
+| [FASTER RCNN (DATA RAW)](https://drive.google.com/file/d/18ZTuinh0F2ITHorxP4P0J4tP3xBWUnB4/view?usp=sharing)| 41.747 | 72.707 |  
+| [YOLOV5 (DATA RAW)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing)| 64.3 | 34.3 | 
+| [FASTER RCNN (DATA AUGMENTATION)](https://drive.google.com/file/d/1-Ze4EbZTjZVUWq285EtojjpG0DmBj0t9/view?usp=sharing) | 43.437  | 75.847 | 
+| [YOLOV5 (DATA AUGMENTATION)](https://drive.google.com/file/d/13jiQ3It4RACX2nxLonWUYtRxOCQ8ZaoN/view?usp=sharing) | 64.3 | 34.3 |  
 
 <a name ="demo"></a>
 ## DEMO
