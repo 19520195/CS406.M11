@@ -9,7 +9,7 @@ CFG_PATH_FASTERRCNN_CONFIG = './model/config_FasterRCNN.txt'
 CFG_PATH_FASTERRCNN_MODEL = './model/FasterRCNN.pth'
 
 # DEVICE
-CFG_DEVICE = 'cpu' # ['cpu' , 'gpu'] # FASTER RCNN
+CFG_DEVICE = 'cpu' # ['cpu' , 'cuda'] # FASTER RCNN
 
 # MODEL
 CFG_MODEL = 'yolo' # ['yolo' , 'fasterrcnn']
